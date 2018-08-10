@@ -10,7 +10,7 @@ header {
 
 .jumbotron {
   height: 30vh;
-  background-image: url('/images/cornfield_headerjpg.jpg');
+  background-image: url('../images/cornfield_headerjpg.jpg');
   background-position: center center;
   background-size: cover;
 }
