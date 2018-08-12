@@ -19,10 +19,6 @@ header {
   min-height: 480px;
 }
 
-/* .thumbnail img {
-  max-height: 180px;
-} */
-
 footer {
   height: 50px;
   background-color: #FFC338;
@@ -33,4 +29,16 @@ footer {
 
 footer p {
   margin-bottom: 0;
+}
+
+/*--Details Page--*/
+
+.detail-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sec-1, .sec-2 {
+  width: 49%;
+
 }
