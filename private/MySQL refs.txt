@@ -1,0 +1,126 @@
+//to load an sql file directly on to sql database
+  mysql -u root -p globe_bank < path to the file
+
+//to log into mysql
+  mysql -u root //or can log in get directly in the db by mysql -u roo -p globe_bank
+
+//to show db
+  SHOW DATABASES;
+
+//to create db
+  CREATE DATABASE db_name;
+
+//to change or use a perticular db
+  USE db_name;
+
+//to delete or drop a db
+  DROP DATABASE db_name;
+
+
+//to create user access with all/* privileges to database
+  GRANT ALL PRIVILEGES ON globe_bank.* TO 'dev'@'localhost' IDENTIFIED BY 'devpass';
+
+//to create table 'subjects' in a database
+  CREATE TABLE tabe_name (
+    column_name DEFINITION,
+    column_name DEFINITION,
+    column_name DEFINITION,
+    OPTIONS 
+  );
+
+  CREATE TABLE subjects (
+    id INT (11) NOT NULL AUTO_INCREMENT, //def: int upto 11 charecters long cannot be null and increments automatically
+    menu_name VARCHAR(225),  //def: VARCHAR(225): variable length characters and length up 225 charecters
+    position INT(3),  //def: INT(3): intergers length up 3 charecters which is 999
+    visible TINYINT(1), //def: TINYINT(1): tiny integer with length up 1 which is used for boolean values
+    PRIMARY KEY (id)  //def: as an special option def the field 'id' is selected for PRIMARY KEY
+  );
+
+//sql commands specific to tables
+  SHOW TABLES;  //to show tables in a database
+  SHOW COLUMNS FROM table_name;  //to show columns from a table
+  DROP TABLE table_name;  //to drop is to delete a selected table
+
+
+	//CRUD operations CREATE, READ, UPDATE and DELETE
+
+//SQL SELECT(READ)
+  SELECT *  //select */all 
+  FROM table  //from which table_name
+  WHERE column1 = 'some_text'  //condition: where id = 8 or where state = state_name
+  ORDER BY column1 ASC;
+
+//SQL INSERT(CREATE)
+  INSERT INTO table_name (col1, col2, col3)
+  VALUES (val1, val2, val3);
+
+//SQL UPDATE(UPDATE)
+  UPDATE table
+  SET col1 = 'this', col2 = 'that'
+  WHERE id = 1;
+
+//SQL DELETE(DELETE)
+  DELETE FROM table
+  WHERE id = 1;
+
+//SQL ADD INDEX
+  ALTER TABLE table_name
+  ADD INDEX index_name (column); //fk
+
+
+CREATE TABLE pages (
+  id INT (11) NOT NULL AUTO_INCREMENT,
+  subject_id INT(11),
+  menu_name VARCHAR(225),
+  position INT(3),
+  visible TINYINT(1),
+  content TEXT,
+  PRIMARY KEY (id)
+);
+
+//Create Admins Table
+CREATE TABLE admins (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(225),
+  last_name VARCHAR(225),
+  email VARCHAR(225),
+  username VARCHAR(225),
+  hashed_password VARCHAR(225),
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE admins ADD INDEX index_username (username);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
