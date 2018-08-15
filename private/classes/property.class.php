@@ -25,8 +25,8 @@
     public $air_conditioning;
     public $price = 0.0;
     public $features;
+    public $img_path = [];
     protected $condition_id;
-    public $img_name;
 
     public const PROPERTY_TYPE = ['Condominium', 'Mini-Condominium', 'Apartment', 'Flat', 'Bungalow', 'Land'];
 
@@ -55,7 +55,6 @@
       $this->price = $args['price'] ?? 0.0;
       $this->features = $args['features'] ?? NULL;
       $this->condition_id = $args['condition_id'] ?? 3;
-      $this->img_name = $args['img_name'] ?? NULL;
     }
 
     public function area()

@@ -11,10 +11,15 @@
     <?php
       $props = Property::find_all();
       foreach ($props as $prop) {
+        $img_arr = $prop->get_images($prop->id);
     ?>
       <section class="col-xs-6 col-sm-4">
         <div class="thumbnail">
-          <img src="<?php echo url_for('/images/' . $prop->img_name) ?>" alt="House 1">
+          <?php foreach ($img_arr as $images)  {?>
+            <?php foreach ($images as $img) {?>
+          <img src="<?php echo url_for('/images/' . $img) ?>" alt="House 1">
+            <?php } ?>
+          <?php } ?>
           <div class="caption">
             <h3><?php echo h($prop->property_type); ?></h3>
             <p><?php echo h($prop->description); ?></p>

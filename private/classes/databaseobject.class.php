@@ -42,6 +42,23 @@
       return static::find_by_sql($sql);
     }
 
+    public function get_images($id)
+    {
+      $sql = "SELECT image_path FROM images WHERE subject_id=" . $id;
+      $result = self::$database->query($sql);
+      if (!$result) {
+        exit('Image query failed.');
+      }
+      while ($record = $result->fetch_assoc())
+      {
+        $this->img_path[] = $record;
+      }
+
+      $result->free();
+
+      return $this->img_path;
+    }
+
     public static function count_all()
     {
       $sql = "SELECT COUNT(*) FROM " . static::$table_name;
