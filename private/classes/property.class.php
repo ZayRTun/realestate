@@ -8,14 +8,14 @@
   class Property extends DatabaseObject
   {
     protected static $table_name = 'properties';
-    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'street', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id'];
+    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id'];
 
     public $id;
     public $description;
     public $development;
     public $state;
     public $township;
-    public $street;
+    public $address;
     public $property_type;
     public $floor;
     public $width = 0.0;
@@ -45,7 +45,7 @@
       $this->development = $args['development'] ?? NULL;
       $this->state = $args['state'] ?? NULL;
       $this->township = $args['township'] ?? NULL;
-      $this->street = $args['street'] ?? NULL;
+      $this->address = $args['address'] ?? NULL;
       $this->property_type = $args['property_type'] ?? NULL;
       $this->floor = $args['floor'] ?? NULL;
       $this->width = $args['width'] ?? 0.0;

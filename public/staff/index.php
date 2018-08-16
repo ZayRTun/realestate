@@ -8,8 +8,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
+
+        <a href="<?php echo url_for('/staff/new.php'); ?>">Add new</a>
+        
         <div class="table-responsive">
-          <table class="table table-bordered table-condensed table-hover">
+          <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>Proper Type</th>
@@ -17,10 +20,12 @@
                 <th>Floor</th>
                 <th>Area</th>
                 <th>Condition</th>
-                <th>Street</th>
+                <th>Address</th>
                 <th>Township</th>
                 <th>State</th>
                 <th>Price</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -33,11 +38,13 @@
                 <td><?php echo h($prop->floor); ?></td>
                 <td><?php echo h($prop->area()) . ' sqft'; ?></td>
                 <td><?php echo h($prop->condition()); ?></td>
-                <td><?php echo h($prop->street); ?></td>
+                <td><?php echo h($prop->address); ?></td>
                 <td><?php echo h($prop->township); ?></td>
                 <td><?php echo h($prop->state); ?></td>
                 <td><?php echo h($prop->price) . ' kyats'; ?></td>
                 <td><a href="<?php echo url_for('/staff/property/details?id=' . h(u($prop->id))); ?>">Details</a></td>
+                <td><a href="<?php echo url_for('/staff/property/edit?id=' . h(u($prop->id))); ?>">Edit</a></td>
+                <td><a href="<?php echo url_for('/staff/property/delete?id=' . h(u($prop->id))); ?>">Delete</a></td>
               </tr>
             <?php } ?>
 
