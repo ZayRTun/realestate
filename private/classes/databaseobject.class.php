@@ -56,7 +56,15 @@
 
       $result->free();
 
+
       return $this->img_path;
+    }
+
+    public function main_image()
+    {
+      $this->img_main = $this->img_path[0];
+
+      return $this->img_main;
     }
 
     public static function count_all()

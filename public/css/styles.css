@@ -40,5 +40,39 @@ footer p {
 
 .sec-1, .sec-2 {
   width: 49%;
+}
+
+/*--Carousel--*/
+
+.carousel-control {
+  /*opacity: 0.1;*/
+}
+
+
+
+
+
+/*--Media Queries--*/
+
+@media (min-width: 1200px) {
+  .thumbnail>img {
+    width: 349px;
+  }
+}
+
+@media (min-width: 992px) {
+  .thumbnail>img {
+    /*height: 250px;*/
+  }
+}
+
+@media (min-width: 768px) {
+  .thumbnail>img {
+    height: 233px;
+  }
+}
+
+@media (min-width: 767px) {
 
 }
+

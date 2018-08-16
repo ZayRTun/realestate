@@ -8,7 +8,7 @@
   class Property extends DatabaseObject
   {
     protected static $table_name = 'properties';
-    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'street', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id', 'img_name'];
+    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'street', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id'];
 
     public $id;
     public $description;
@@ -25,6 +25,7 @@
     public $air_conditioning;
     public $price = 0.0;
     public $features;
+    public $img_main;
     public $img_path = [];
     protected $condition_id;
 
