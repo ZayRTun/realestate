@@ -82,6 +82,11 @@
 </div>
 
 <div class="form-group">
+  <label for="filename">Select File</label>
+  <input type="file" name="filename[]" id="filename" multiple>
+</div>
+
+<div class="form-group">
   <label  for="features">Features</label>
   <textarea name="property[features]" class="form-control" id="features" rows="5" cols="50"><?php echo h($prop->features); ?></textarea>
 </div>
