@@ -26,6 +26,7 @@ class UploadFile
   ];
   protected $suffix = '.upload';
   protected $renameDuplicates;
+  protected $image_name = [];
 
   public function __construct($uploadFolder)
   {
@@ -213,6 +214,7 @@ class UploadFile
     $filename = isset($this->newName) ? $this->newName : $file['name'];
     $success = move_uploaded_file($file['tmp_name'], $this->destination . $filename);
     if ($success) {
+      $this->image_name[] = $filename;
       $result = $file['name'] . ' was uploaded successfully';
       if (!is_null($this->newName)) {
         $result .= ', and was renamed ' . $this->newName;
@@ -222,6 +224,11 @@ class UploadFile
     } else {
       $this->messages[] = 'Could not upload ' . $file['name'];
     }
+  }
+
+  public function getImageName()
+  {
+    return implode(', ', $this->image_name);
   }
 
 } /*--End of Class--*/

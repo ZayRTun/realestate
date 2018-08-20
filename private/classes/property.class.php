@@ -8,7 +8,7 @@
   class Property extends DatabaseObject
   {
     protected static $table_name = 'properties';
-    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id'];
+    protected static $db_columns = ['id', 'description', 'development', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id', 'image_names'];
 
     public $id;
     public $description;
@@ -26,7 +26,7 @@
     public $price = 0.0;
     public $features;
     public $img_main;
-    public $img_path = [];
+    public $image_names;
     protected $condition_id;
 
     public const PROPERTY_TYPE = ['Condominium', 'Mini-Condominium', 'Apartment', 'Flat', 'Bungalow', 'Land'];
@@ -56,6 +56,7 @@
       $this->price = $args['price'] ?? 0.0;
       $this->features = $args['features'] ?? NULL;
       $this->condition_id = $args['condition_id'] ?? 3;
+      $this->image_names = $args['image_names'] ?? NULL;
     }
 
     public function area()

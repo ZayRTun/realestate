@@ -42,7 +42,7 @@
                 <td><?php echo h($prop->township); ?></td>
                 <td><?php echo h($prop->state); ?></td>
                 <td><?php echo h($prop->price) . ' kyats'; ?></td>
-                <td><a href="<?php echo url_for('/staff/property/details?id=' . h(u($prop->id))); ?>">Details</a></td>
+                <td><a href="<?php echo url_for('/staff/show.php?id=' . h(u($prop->id))); ?>">Details</a></td>
                 <td><a href="<?php echo url_for('/staff/property/edit?id=' . h(u($prop->id))); ?>">Edit</a></td>
                 <td><a href="<?php echo url_for('/staff/property/delete?id=' . h(u($prop->id))); ?>">Delete</a></td>
               </tr>

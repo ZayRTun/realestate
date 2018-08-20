@@ -1,14 +1,25 @@
 <?php
   require_once('../../private/initialize.php');
 
+  $max = 400 * 1024;
+  $img_result = [];
+  $destination = PUBLIC_PATH . '/uploaded';
+
   if (is_post_request()) {
 
     $args = $_POST['property'];
 
-    echo '<pre>';
-    echo print_r($args);
-    echo print_r($_FILES);
-    echo '</pre>';
+    try {
+      $upload = new UploadFile($destination);
+      $upload->setMaxSize($max);
+      $upload->allowAllTypes();
+      $upload->upload();
+      $args['image_names'] = $upload->getImageName();
+      $img_result = $upload->getMessages();
+    } catch (Exception $e) {
+      $img_result[] = $e->getMessage();
+    }
+
 
     $prop = new Property($args);
     $result = $prop->save();
@@ -16,9 +27,10 @@
     if ($result === true) {
       $new_id = $prop->id;
       /*$session->message('The proprety was created successfully.');*/
-      /*redirect_to(url_for('/staff/show.php?id=' . $new_id));*/
+      redirect_to(url_for('/staff/show.php?id=' . $new_id));
     } else {
       // show errors
+      echo print_r($prop->errors);
     }
 
   } else {

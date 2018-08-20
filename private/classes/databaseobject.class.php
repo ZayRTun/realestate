@@ -44,20 +44,21 @@
 
     public function get_images($id)
     {
-      $sql = "SELECT image_path FROM images WHERE subject_id=" . $id;
+      $sql = "SELECT image_names FROM properties WHERE id=" . $id;
       $result = self::$database->query($sql);
+      $images = '';
       if (!$result) {
         exit('Image query failed.');
       }
       while ($record = $result->fetch_assoc())
       {
-        $this->img_path[] = $record;
+        $images = $record;
       }
 
       $result->free();
 
 
-      return $this->img_path;
+      return explode(', ', $images['image_names']);
     }
 
     public function main_image()

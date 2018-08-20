@@ -11,6 +11,7 @@
       $upload->allowAllTypes();
       $upload->upload();
       $result = $upload->getMessages();
+      echo $upload->getImageName();
     } catch (Exception $e) {
       $result[] = $e->getMessage();
     }

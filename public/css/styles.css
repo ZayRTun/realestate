@@ -49,7 +49,9 @@ footer p {
 }
 
 
-
+[hidden] {
+  display: none !important;
+}
 
 
 /*--Media Queries--*/

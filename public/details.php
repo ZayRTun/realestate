@@ -8,7 +8,7 @@
 
   $prop = Property::find_by_id($id);
   $images = $prop->get_images($prop->id);
-  $img_main = $prop->main_image();
+  /*$img_main = $prop->main_image();*/
 
   $page_title = 'Details';
   include(SHARED_PATH . '/public_header.php');
@@ -54,13 +54,13 @@
                   $active = true;
             ?>
                   <div class="item active">
-                    <img class="img-responsive" src="<?php echo url_for('/images/' . $img['image_path']); ?>" alt="<?php echo $img['image_path']; ?>">
+                    <img class="img-responsive" src="<?php echo url_for('/uploaded/' . $img); ?>" alt="<?php echo $img; ?>">
                   </div>
 
               <?php } else { ?>
 
                   <div class="item">
-                    <img class="img-responsive" src="<?php echo url_for('/images/' . $img['image_path']); ?>" alt="<?php echo $img['image_path']; ?>">
+                    <img class="img-responsive" src="<?php echo url_for('/uploaded/' . $img); ?>" alt="<?php echo $img; ?>">
                   </div>
 
               <?php } ?>
@@ -101,7 +101,7 @@
               <p><strong>Height: </strong><?php echo h($prop->length); ?></p>
               <p><strong>City/State: </strong><?php echo h($prop->state); ?></p>
               <p><strong>Township: </strong><?php echo h($prop->township); ?></p>
-              <p><strong>Street: </strong><?php echo h($prop->street); ?></p>
+              <p><strong>Address: </strong><?php echo h($prop->address); ?></p>
             </div>
           </section>
         </div>

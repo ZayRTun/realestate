@@ -38,7 +38,7 @@
 
 <div class="form-group">
   <label  for="condition">Condition</label>
-  <select name="bicycle[condition_id]" class="form-control" id="condition">
+  <select name="property[condition_id]" class="form-control" id="condition">
     <option value=""></option>
     <?php foreach(Property::CONDITION_OPTIONS as $cond_id => $cond_name) { ?>
       <option value="<?php echo $cond_id; ?>" <?php if ($prop->condition() == $cond_name) { echo 'selected'; } ?>><?php echo $cond_name; ?></option>
@@ -82,6 +82,16 @@
 </div>
 
 <div class="form-group">
+  <h3>Upload Images</h3>
+  <?php if ($img_result) {?>
+  <ul class="result">
+    <?php
+      foreach ($img_result as $result) {
+        echo "<li>$result</li>";
+      }
+    ?>
+  </ul>
+  <?php } ?>
   <label for="filename">Select File</label>
   <input type="file" name="filename[]" id="filename" multiple>
 </div>
