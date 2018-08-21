@@ -8,7 +8,6 @@
 
   $prop = Property::find_by_id($id);
   $images = $prop->get_images($prop->id);
-  /*$img_main = $prop->main_image();*/
 
   $page_title = 'Details';
   include(SHARED_PATH . '/public_header.php');
@@ -66,9 +65,7 @@
               <?php } ?>
             <?php } ?>
 
-           <!-- <div class="item">
-              <img class="img-responsive" src="<?php /*echo url_for('/images/' . $img_main['image_path']); */?>" alt="House 1">
-            </div>-->
+
           </div> <!--carousel-inner-->
 
           <a class="left carousel-control" href="#featured" role="button" data-slide="prev">

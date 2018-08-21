@@ -50,8 +50,8 @@
       $this->floor = $args['floor'] ?? NULL;
       $this->width = $args['width'] ?? 0.0;
       $this->length = $args['length'] ?? 0.0;
-      $this->bed_room = $args['bed_room'] ?? NULL;
-      $this->bath_room = $args['bath_room'] ?? NULL;
+      $this->bed_room = $args['bed_room'] ?? 'None';
+      $this->bath_room = $args['bath_room'] ?? 1;
       $this->air_conditioning = $args['air_conditioning'] ?? NULL;
       $this->price = $args['price'] ?? 0.0;
       $this->features = $args['features'] ?? NULL;

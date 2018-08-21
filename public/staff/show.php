@@ -7,9 +7,10 @@
   }
 
   $prop = Property::find_by_id($id);
+  $images = $prop->get_images($prop->id);
 
   $page_title = 'Details';
-  include(SHARED_PATH . '/public_header.php');
+  include(SHARED_PATH . '/staff_header.php');
 ?>
 
 <div class="container">
@@ -19,7 +20,66 @@
 
 
 
+        <div class="carousel slide" id="featured">
 
+          <lo class="carousel-indicators">
+
+            <?php
+              $active_li = false;
+              for ($i = 0, $l = count($images); $i < $l; ++$i) {
+                if (!$active_li) {
+                  $active_li = true;
+                  ?>
+
+                  <li data-target="#featured" data-slide-to="<?php echo $i; ?>" class="active"></li>
+
+                <?php } else { ?>
+
+                  <li data-target="#featured" data-slide-to="<?php echo $i; ?>"></li>
+
+                <?php } ?>
+              <?php } ?>
+
+          </lo>
+
+          <div class="carousel-inner">
+
+
+
+            <?php
+              $active = false;
+              foreach ($images as $img) {
+                if (!$active) {
+                  $active = true;
+                  ?>
+                  <div class="item active">
+                    <img class="img-responsive" src="<?php echo url_for('/uploaded/' . $img); ?>" alt="<?php echo $img; ?>">
+                  </div>
+
+                <?php } else { ?>
+
+                  <div class="item">
+                    <img class="img-responsive" src="<?php echo url_for('/uploaded/' . $img); ?>" alt="<?php echo $img; ?>">
+                  </div>
+
+                <?php } ?>
+              <?php } ?>
+
+
+          </div> <!--carousel-inner-->
+
+          <a class="left carousel-control" href="#featured" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#featured" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+
+        </div> <!--carousel-->
+
+
+
+        <!--<img src="<?php /*echo url_for('/images/' . $img_main['image_path']); */?>" alt="House 1">-->
         <div class="caption">
           <h3><?php echo h($prop->property_type); ?></h3>
           <p><?php echo h($prop->description); ?></p>
@@ -38,7 +98,7 @@
               <p><strong>Height: </strong><?php echo h($prop->length); ?></p>
               <p><strong>City/State: </strong><?php echo h($prop->state); ?></p>
               <p><strong>Township: </strong><?php echo h($prop->township); ?></p>
-              <p><strong>Street: </strong><?php echo h($prop->address); ?></p>
+              <p><strong>Address: </strong><?php echo h($prop->address); ?></p>
             </div>
           </section>
         </div>
@@ -54,3 +114,8 @@
 </div>
 
 <!----Footer---->
+<?php
+
+include(SHARED_PATH . '/staff_footer.php');
+
+?>

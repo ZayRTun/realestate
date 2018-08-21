@@ -81,20 +81,6 @@
   <input type="text" name="property[price]"  id="price" class="form-control" value="<?php echo h($prop->price); ?>">
 </div>
 
-<div class="form-group">
-  <h3>Upload Images</h3>
-  <?php if ($img_result) {?>
-  <ul class="result">
-    <?php
-      foreach ($img_result as $result) {
-        echo "<li>$result</li>";
-      }
-    ?>
-  </ul>
-  <?php } ?>
-  <label for="filename">Select File</label>
-  <input type="file" name="filename[]" id="filename" multiple>
-</div>
 
 <div class="form-group">
   <label  for="features">Features</label>
