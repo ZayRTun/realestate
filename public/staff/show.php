@@ -3,7 +3,7 @@
 
   $id = $_GET['id'] ?? false;
   if (!$id) {
-    redirect_to('index.php');
+    redirect_to(url_for('/staff/index.php'));
   }
 
   $prop = Property::find_by_id($id);

@@ -20,6 +20,7 @@
           <img class="index_img" src="<?php echo url_for('/uploaded/' . $img_main[0]) ?>" alt="House 1">
           <div class="caption">
             <h3><?php echo h($prop->property_type); ?></h3>
+            <p><?php echo h($prop->property_for); ?></p>
             <p><?php echo h($prop->description); ?></p>
             <a href="details.php?id=<?php echo $prop->id; ?>" class="btn btn-info">View Details</a>
           </div>

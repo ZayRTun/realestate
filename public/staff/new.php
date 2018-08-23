@@ -14,6 +14,9 @@
       redirect_to(url_for('/staff/upload.php?id=' . $new_id));
     } else {
       // show errors
+      echo '<pre>';
+      echo print_r($args);
+      echo '</pre>';
     }
 
   } else {
@@ -29,7 +32,7 @@
 
 <div class="container">
   <div class="row">
-    <section class="col-xs-4">
+    <section class="col-xs-12">
       <a href="<?php echo url_for('/staff/index.php'); ?>">&laquo; Back to List</a>
       <?php echo display_errors($prop->errors); ?>
 
@@ -39,12 +42,19 @@
         <?php include('form_fields.php'); ?>
 
 
+        <div class="col-xs-12">
+          <input class="btn btn-primary btn-block" type="submit" value="Create Property" name="upload"/>
+        </div>
 
-
-        <input class="btn btn-default pull-right" type="submit" value="Create Property" name="upload"/>
       </form>
 
 
     </section>
   </div><!-- row -->
 </div><!-- content container -->
+
+<?php
+
+  include(SHARED_PATH . '/staff_footer.php');
+
+?>

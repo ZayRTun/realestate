@@ -11,7 +11,7 @@
   <title>Goldan Land <?php if (isset($page_title)) { echo '- ' . h($page_title);} ?></title>
 </head>
 <body>
-<header>
+<header id="staff_header">
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -34,7 +34,4 @@
       </div>
     </div>
   </nav>
-  <div class="jumbotron">
-    // Image or icon here
-  </div>
 </header>

@@ -19,7 +19,12 @@ header {
   min-height: 480px;
 }
 
+#staff_header {
+  margin-bottom: 25px;
+}
+
 footer {
+  margin-top: 25px;
   height: 50px;
   background-color: #FFC338;
   display: flex;

@@ -15,7 +15,8 @@
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Proper Type</th>
+                <th>Property Type</th>
+                <th>Property For</th>
                 <th>Developer</th>
                 <th>Floor</th>
                 <th>Area</th>
@@ -34,6 +35,7 @@
             <?php foreach ($props as $prop) { ?>
               <tr>
                 <td><?php echo h($prop->property_type); ?></td>
+                <td><?php echo h($prop->property_for); ?></td>
                 <td><?php echo h($prop->development); ?></td>
                 <td><?php echo h($prop->floor); ?></td>
                 <td><?php echo h($prop->area()) . ' sqft'; ?></td>
@@ -43,7 +45,7 @@
                 <td><?php echo h($prop->state); ?></td>
                 <td><?php echo h($prop->price) . ' kyats'; ?></td>
                 <td><a href="<?php echo url_for('/staff/show.php?id=' . h(u($prop->id))); ?>">Details</a></td>
-                <td><a href="<?php echo url_for('/staff/property/edit?id=' . h(u($prop->id))); ?>">Edit</a></td>
+                <td><a href="<?php echo url_for('/staff/edit?id=' . h(u($prop->id))); ?>">Edit</a></td>
                 <td><a href="<?php echo url_for('/staff/property/delete?id=' . h(u($prop->id))); ?>">Delete</a></td>
               </tr>
             <?php } ?>
