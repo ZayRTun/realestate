@@ -42,7 +42,7 @@
       return static::find_by_sql($sql);
     }
 
-    public function get_images($id)
+    /*public function get_images()
     {
       $sql = "SELECT image_names FROM properties WHERE id=" . $id;
       $result = self::$database->query($sql);
@@ -59,14 +59,7 @@
 
 
       return explode(', ', $images['image_names']);
-    }
-
-    public function main_image()
-    {
-      $this->img_main = $this->img_path[0];
-
-      return $this->img_main;
-    }
+    }*/
 
     public static function count_all()
     {

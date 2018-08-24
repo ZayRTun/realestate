@@ -7,7 +7,7 @@
   }
 
   $prop = Property::find_by_id($id);
-  $images = $prop->get_images($prop->id);
+  $images = $prop->get_images();
 
   $page_title = 'Details';
   include(SHARED_PATH . '/staff_header.php');

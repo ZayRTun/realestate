@@ -89,4 +89,24 @@
       }
       return $this->errors;
     }
+
+    public function get_images()
+    {
+      return explode(', ', $this->image_names);
+    }
+
+    public function delete_images($path)
+    {
+      if ($path[strlen($path)-1 != '/']) {
+        $path .= '/';
+      }
+      $img_array = explode(', ', $this->image_names);
+
+      foreach ($img_array as $img) {
+        if (file_exists($path . $img)) {
+          unlink($path . $img);
+        }
+      }
+
+    }
   }
