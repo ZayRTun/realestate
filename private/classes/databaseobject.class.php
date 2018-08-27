@@ -42,24 +42,12 @@
       return static::find_by_sql($sql);
     }
 
-    /*public function get_images()
+    public static function get_latest_posting()
     {
-      $sql = "SELECT image_names FROM properties WHERE id=" . $id;
-      $result = self::$database->query($sql);
-      $images = '';
-      if (!$result) {
-        exit('Image query failed.');
-      }
-      while ($record = $result->fetch_assoc())
-      {
-        $images = $record;
-      }
-
-      $result->free();
-
-
-      return explode(', ', $images['image_names']);
-    }*/
+      $sql = "SELECT * FROM ( SELECT * FROM " . static::$table_name . " ";
+      $sql .= "ORDER BY id DESC LIMIT 2 ) sub ORDER BY id ASC";
+      return static::find_by_sql($sql);
+    }
 
     public static function count_all()
     {

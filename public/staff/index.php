@@ -5,23 +5,21 @@
   $props = Property::find_all();
 ?>
 
-  <div class="container">
+  <div class="container main">
     <div class="row">
       <div class="col-sm-12">
 
         <a href="<?php echo url_for('/staff/new.php'); ?>">Add new</a>
         
-        <div class="table-responsive">
+        <div class="table-responsive table-responsive">
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
+                <th>Name</th>
+                <th>Contact</th>
                 <th>Property Type</th>
                 <th>Property For</th>
-                <th>Developer</th>
-                <th>Floor</th>
                 <th>Area</th>
-                <th>Condition</th>
-                <th>Address</th>
                 <th>Township</th>
                 <th>State</th>
                 <th>Price</th>
@@ -34,13 +32,11 @@
 
             <?php foreach ($props as $prop) { ?>
               <tr>
+                <td><?php echo h($prop->get_name()); ?></td>
+                <td><?php echo h($prop->contact_phone); ?></td>
                 <td><?php echo h($prop->property_type); ?></td>
                 <td><?php echo h($prop->property_for); ?></td>
-                <td><?php echo h($prop->development); ?></td>
-                <td><?php echo h($prop->floor); ?></td>
                 <td><?php echo h($prop->area()) . ' sqft'; ?></td>
-                <td><?php echo h($prop->condition()); ?></td>
-                <td><?php echo h($prop->address); ?></td>
                 <td><?php echo h($prop->township); ?></td>
                 <td><?php echo h($prop->state); ?></td>
                 <td><?php echo h($prop->price) . ' kyats'; ?></td>

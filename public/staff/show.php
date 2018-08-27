@@ -13,7 +13,7 @@
   include(SHARED_PATH . '/staff_header.php');
 ?>
 
-<div class="container">
+<div class="container main">
   <div class="row">
     <section class="col-sm-8">
       <div class="thumbnail">

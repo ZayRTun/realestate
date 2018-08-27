@@ -34,7 +34,7 @@
 
 ?>
 
-<div class="container">
+<div class="container main">
   <div class="row">
     <div class="col-xs-12">
       <a href="<?php echo url_for('/staff/index.php'); ?>">&laquo; Back to List</a>

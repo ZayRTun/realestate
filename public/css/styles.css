@@ -2,6 +2,10 @@ header {
   background-color: #FFC338;
 }
 
+.main {
+  min-height: 100vh;
+}
+
 .navbar {
   margin-bottom: 0;
   background-color: #FFC338;
@@ -53,9 +57,30 @@ footer p {
   /*opacity: 0.1;*/
 }
 
+.main_slide {
+  margin-bottom: 25px;
+}
+
+.main_slide_item {
+  height: 400px;
+  width: auto;
+}
+
 
 [hidden] {
   display: none !important;
+}
+
+.custom-inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inline {
+  width: 49%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
@@ -77,6 +102,7 @@ footer p {
   .thumbnail>img {
     height: 233px;
   }
+
 }
 
 @media (min-width: 767px) {

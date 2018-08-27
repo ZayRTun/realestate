@@ -30,7 +30,7 @@
   include(SHARED_PATH . '/staff_header.php');
 ?>
 
-<div class="container">
+<div class="container main">
   <div class="row">
     <section class="col-xs-12">
       <a href="<?php echo url_for('/staff/index.php'); ?>">&laquo; Back to List</a>

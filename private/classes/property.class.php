@@ -8,9 +8,12 @@
   class Property extends DatabaseObject
   {
     protected static $table_name = 'properties';
-    protected static $db_columns = ['id', 'description', 'development', 'property_for', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'features', 'condition_id', 'image_names'];
+    protected static $db_columns = ['id', 'first_name', 'last_name', 'contact_phone', 'description', 'development', 'property_for', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'condition_id', 'image_names'];
 
     public $id;
+    public $first_name;
+    public $last_name;
+    public $contact_phone;
     public $property_type;
     public $property_for;
     public $development;
@@ -25,7 +28,6 @@
     public $bath_room;
     public $air_conditioning;
     public $price = 0.0;
-    public $features;
     public $img_main;
     public $image_names;
     protected $condition_id;
@@ -44,6 +46,9 @@
 
     public function __construct($args=[])
     {
+      $this->first_name = $args['first_name'] ?? NULL;
+      $this->last_name = $args['last_name'] ?? NULL;
+      $this->contact_phone = $args['contact_phone'] ?? NULL;
       $this->property_type = $args['property_type'] ?? NULL;
       $this->property_for = $args['property_for'] ?? NULL;
       $this->development = $args['development'] ?? NULL;
@@ -59,8 +64,11 @@
       $this->township = $args['township'] ?? NULL;
       $this->state = $args['state'] ?? NULL;
       $this->price = $args['price'] ?? 0.0;
-      $this->features = $args['features'] ?? NULL;
       $this->image_names = $args['image_names'] ?? NULL;
+    }
+
+    public function get_name() {
+      return "$this->first_name $this->last_name";
     }
 
     public function area()
