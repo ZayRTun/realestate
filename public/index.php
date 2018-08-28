@@ -16,14 +16,13 @@
 
 
   <div class="container">
-    <div class="row">
 
+    <div class="row">
       <section class="col-xs-12">
 
         <h3>Latest Postings</h3>
 
         <div class="carousel slide main_slide" data-ride="carousel" id="featured">
-
           <div class="carousel-inner">
             <?php $active = false; ?>
             <?php foreach ($lastPosts as $lastPost) { ?>
@@ -31,20 +30,47 @@
                 <?php if (!$active) { ?>
                 <?php $active = true; ?>
 
-                  <div class="item active main_slide_item">
-                    <a href="details.php?id=<?php echo $lastPost->id; ?>">
 
-                    <img class="img-responsive center-block" src="<?php echo url_for('/uploaded/' . $images[0]); ?>" alt="<?php echo $images[0]; ?>">
+                    <div class="item active" >
+                      <a href="details.php?id=<?php echo $lastPost->id; ?>">
 
-                    </a>
-                  </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <div class="thumbnail" style="background-image: url(<?php echo url_for('/uploaded/' . $images[0]); ?>)">
+                              <img class="img-responsive center-block" src="<?php echo url_for('/uploaded/' . $images[0]); ?>" alt="<?php echo $images[0]; ?>">
+                            </div>
+                          </div>
+                          <div class="caption col-sm-4 hidden-xs">
+                            <h3><?php echo $lastPost->property_type; ?></h3>
+                            <p>For <?php echo $lastPost->property_for; ?></p>
+                            <p><?php echo $lastPost->description; ?></p>
+                            <p><?php echo $lastPost->township; ?></p>
+                            <p><?php echo $lastPost->price; ?></p>
+                          </div>
+                        </div>
+
+                      </a>
+                    </div>
 
                 <?php } else { ?>
 
-                <div class="item main_slide_item">
+                <div class="item" >
                   <a href="details.php?id=<?php echo $lastPost->id; ?>">
 
-                    <img class="img-responsive center-block" src="<?php echo url_for('/uploaded/' . $images[0]); ?>" alt="<?php echo $images[0]; ?>">
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <div class="thumbnail" style="background-image: url(<?php echo url_for('/uploaded/' . $images[0]); ?>)">
+                          <img class="img-responsive center-block" src="<?php echo url_for('/uploaded/' . $images[0]); ?>" alt="<?php echo $images[0]; ?>">
+                        </div>
+                      </div>
+                      <div class="caption col-sm-4 hidden-xs">
+                        <h3><?php echo $lastPost->property_type; ?></h3>
+                        <p>For <?php echo $lastPost->property_for; ?></p>
+                        <p><?php echo $lastPost->description; ?></p>
+                        <p><?php echo $lastPost->township; ?></p>
+                        <p><?php echo $lastPost->price; ?></p>
+                      </div>
+                    </div>
 
                   </a>
                 </div>
@@ -64,6 +90,13 @@
         </div> <!--Carousel-->
 
       </section>
+    </div> <!--end of row-->
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Listings</h3>
+      </div>
+
 
     <?php
       $props = Property::find_all();
@@ -73,6 +106,8 @@
         /*$img_main = $prop->main_image();*/
     ?>
       <section class="col-xs-12 col-sm-6 col-md-4">
+
+
         <div class="thumbnail">
           <img class="index_img" src="<?php echo url_for('/uploaded/' . $img_main[0]) ?>" alt="House 1">
           <div class="caption">
@@ -85,7 +120,8 @@
       </section>
     <?php } ?>
 
-    </div>
+    </div> <!--end of row-->
+
   </div>
 
 <?php
