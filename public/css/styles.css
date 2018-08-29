@@ -1,9 +1,17 @@
+body {
+  background-image: url("../images/bg_img.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
 header {
   background-color: #FFC338;
 }
 
+
+
 .main {
   min-height: 100vh;
+
 }
 
 .navbar {
@@ -84,6 +92,28 @@ footer p {
 [hidden] {
   display: none !important;
 }
+
+/*--------nav-tabs------------*/
+.nav-tabs>li.active>a {
+  border-top-color: #FAB734 !important;
+  color: #FAB734 !important;
+}
+
+
+
+.tab-pane {
+  padding-top: 30px;
+}
+
+
+.tab-pane .thumbnail {
+  min-height: 480px;
+}
+
+.tab-pane .thumbnail .description {
+  min-height: 80px;
+}
+
 
 /*-------form-style----------*/
 

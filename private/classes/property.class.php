@@ -10,6 +10,8 @@
     protected static $table_name = 'properties';
     protected static $db_columns = ['id', 'first_name', 'last_name', 'contact_phone', 'description', 'development', 'property_for', 'state', 'township', 'address', 'property_type', 'floor', 'width', 'length', 'bed_room', 'bath_room', 'air_conditioning', 'price', 'condition_id', 'image_names'];
 
+    protected static $township_names = ['Ahlon', 'Bahan', 'Dagon', 'Kyauktada', 'Kyimyindaing', 'Lanmadaw', 'Latha', 'Pabedan', 'Sanchaung', 'Dagon Seikkan', 'East Dagon', 'North Dagon', 'North Okkalapa', 'South Dagon', 'South Okkalapa', 'Thingangyun', 'Dala', 'Dawbon', 'Botataung', 'Mingala Taungnyunt', 'Seikkyi Kanaungto', 'Tamwe', 'Pazundaung', 'Thaketa', 'Yankin', 'Insein', 'Hlaing', 'Hlaingthaya', 'Kamayut', 'Mayangon', 'Mingaladon', 'Shwepyitha'];
+
     public $id;
     public $first_name;
     public $last_name;
@@ -44,6 +46,8 @@
       5 => 'Like New'
     ];
 
+
+
     public function __construct($args=[])
     {
       $this->first_name = $args['first_name'] ?? NULL;
@@ -67,8 +71,15 @@
       $this->image_names = $args['image_names'] ?? NULL;
     }
 
-    public function get_name() {
+    public function get_name()
+    {
       return "$this->first_name $this->last_name";
+    }
+
+    public static function get_township_names()
+    {
+      sort(self::$township_names);
+      return self::$township_names;
     }
 
     public function area()

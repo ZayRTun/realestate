@@ -42,6 +42,28 @@
       return static::find_by_sql($sql);
     }
 
+    public static function find_all_for_rent()
+    {
+      $rent = 'rent';
+      $rentOrsale = 'rent or sale';
+
+      $sql = "SELECT * FROM " . static::$table_name . " ";
+      $sql .= "WHERE property_for ='" . $rent . "' OR property_for ='" . $rentOrsale . "'";
+
+      return static::find_by_sql($sql);
+    }
+
+    public static function find_all_for_sale()
+    {
+      $sale = 'sale';
+      $rentOrsale = 'rent or sale';
+
+      $sql = "SELECT * FROM " . static::$table_name . " ";
+      $sql .= "WHERE property_for ='" . $sale . "' OR property_for ='" . $rentOrsale . "'";
+
+      return static::find_by_sql($sql);
+    }
+
     public static function get_latest_posting()
     {
       $sql = "SELECT * FROM ( SELECT * FROM " . static::$table_name . " ";

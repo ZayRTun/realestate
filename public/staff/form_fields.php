@@ -150,7 +150,11 @@
 
   <div class="form-group">
     <label  for="township">Township</label>
-    <input type="text" name="property[township]"  id="township" class="form-control" value="<?php echo h($prop->township); ?>">
+    <select name="property[township]" class="form-control" id="township">
+      <?php foreach(Property::get_township_names() as $name) { ?>
+        <option value="<?php echo $name; ?>" <?php if ($name == 'Bahan') { echo 'selected'; } ?>><?php echo $name; ?></option>
+      <?php } ?>
+    </select>
   </div>
 
   <div class="form-group">
