@@ -44,6 +44,7 @@
     </div>
   </nav>
   <div class="jumbotron">
-    // Image or icon here
+
+
   </div>
 </header>

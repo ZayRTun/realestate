@@ -1,7 +1,7 @@
 body {
-  background-image: url("../images/bg_img.jpg");
+  /*background-image: url("../images/bg_img.jpg");
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
 }
 header {
   background-color: #FFC338;
@@ -21,11 +21,14 @@ header {
 }
 
 .jumbotron {
-  height: 30vh;
+  max-height: 40vh;
   background-image: url('../images/cornfield_headerjpg.jpg');
   background-position: center center;
   background-size: cover;
 }
+
+/*-------search-form---------*/
+
 
 
 #staff_header {
@@ -58,8 +61,13 @@ footer p {
 
 /*--Carousel--*/
 
-.carousel {
-  box-shadow: 3px 2px 4px #888888;
+.carousel-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.carousel-container h3 {
+  margin-top: 0 !important;
 }
 
 .carousel-control {
@@ -116,6 +124,12 @@ footer p {
 
 
 /*-------form-style----------*/
+.content-container {
+  background-color: whitesmoke;
+  padding: 20px;
+  display: flex;
+  align-content: center;
+}
 
 .custom-inline {
   display: flex;

@@ -44,8 +44,8 @@
 
     public static function find_all_for_rent()
     {
-      $rent = 'rent';
-      $rentOrsale = 'rent or sale';
+      $rent = 'For Rent';
+      $rentOrsale = 'For Rent or Sale';
 
       $sql = "SELECT * FROM " . static::$table_name . " ";
       $sql .= "WHERE property_for ='" . $rent . "' OR property_for ='" . $rentOrsale . "'";
@@ -55,8 +55,8 @@
 
     public static function find_all_for_sale()
     {
-      $sale = 'sale';
-      $rentOrsale = 'rent or sale';
+      $sale = 'For Sale';
+      $rentOrsale = 'For Rent or Sale';
 
       $sql = "SELECT * FROM " . static::$table_name . " ";
       $sql .= "WHERE property_for ='" . $sale . "' OR property_for ='" . $rentOrsale . "'";

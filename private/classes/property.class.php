@@ -34,7 +34,7 @@
     public $image_names;
     protected $condition_id;
 
-    public const PROPERTY_FOR = ['Rent', 'Sale', 'Rent or Sale'];
+    public const PROPERTY_FOR = ['For Rent', 'For Sale', 'For Rent or Sale'];
 
     public const PROPERTY_TYPE = ['Condominium', 'Mini-Condominium', 'Apartment', 'Flat', 'Bungalow', 'Land'];
 

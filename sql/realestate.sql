@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 15, 2018 at 11:37 PM
+-- Generation Time: Aug 31, 2018 at 06:25 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -25,74 +25,46 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
---
-
-DROP TABLE IF EXISTS `images`;
-CREATE TABLE IF NOT EXISTS `images` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_id` int(11) NOT NULL,
-  `image_path` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_subject_id` (`subject_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `subject_id`, `image_path`) VALUES
-(1, 1, 'house_1a.jpg'),
-(2, 1, 'house_1b.jpg'),
-(3, 1, 'house_1c.jpg'),
-(4, 2, 'house_2a.jpg'),
-(5, 2, 'house_2b.jpg'),
-(6, 2, 'house_2c.jpg'),
-(7, 3, 'house_3a.jpg'),
-(8, 3, 'house_3b.jpg'),
-(9, 3, 'house_3c.jpg'),
-(10, 4, 'house_4.jpg'),
-(11, 5, 'house_5.jpg'),
-(12, 6, 'house_6.jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `properties`
 --
 
 DROP TABLE IF EXISTS `properties`;
 CREATE TABLE IF NOT EXISTS `properties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) NOT NULL,
-  `development` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `township` varchar(255) NOT NULL,
-  `street` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `contact_phone` varchar(255) NOT NULL,
   `property_type` varchar(255) NOT NULL,
-  `floor` varchar(255) NOT NULL,
+  `property_for` varchar(255) NOT NULL,
+  `development` varchar(255) NOT NULL,
+  `bed_room` varchar(255) NOT NULL,
+  `bath_room` varchar(255) NOT NULL,
+  `air_conditioning` varchar(255) NOT NULL,
+  `condition_id` tinyint(3) NOT NULL,
   `width` decimal(9,2) NOT NULL,
   `length` decimal(9,2) NOT NULL,
-  `bed_room` int(11) NOT NULL,
-  `bath_room` int(11) NOT NULL,
-  `air_conditioning` varchar(255) NOT NULL,
+  `floor` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `township` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
   `price` decimal(9,2) NOT NULL,
-  `features` varchar(255) NOT NULL,
-  `condition_id` tinyint(3) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `image_names` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`id`, `description`, `development`, `state`, `township`, `street`, `property_type`, `floor`, `width`, `length`, `bed_room`, `bath_room`, `air_conditioning`, `price`, `features`, `condition_id`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At delectus facere molestiae', 'Naing Group', 'Yangon', 'Kandawlay', 'Pansoda', 'Condo', '1st Floor', '25.00', '60.00', 3, 2, 'Yes', '300000.00', 'Feature are written here', 3),
-(2, 'nobis vero. Ducimus itaque maiores molestias necessitatibus odio officiis voluptates! Assumenda beatae blanditiis consequuntur enim recusandae similique vel.', 'Mother Land Group', 'Yangon', 'Tamwe', 'Tamwe Road', 'Mini-Condo', '5st Floor', '45.00', '100.00', 3, 3, 'Yes', '650000.00', 'Feature are written here', 2),
-(3, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid aspernatur assumenda consequuntur cupiditate dolorem eligendi est', 'Father Land Group', 'Yangon', 'Bahan', 'Bahan Road', 'Mini-Condo', '4st Floor', '45.00', '100.00', 3, 3, 'Yes', '650000.00', 'Feature are written here', 5),
-(4, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis facilis hic iusto labore laudantium minus ', 'GrandFather Land Group', 'Yangon', 'Hlain', 'Hlain Road', 'Condo', '5th Floor', '45.00', '100.00', 3, 3, 'Yes', '650000.00', 'Feature are written here', 3),
-(5, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus', 'Yadanar Myaing Construction', 'Yangon', 'Kyauktada', 'Frazer Road', 'Condo', '11th Floor', '60.00', '100.00', 5, 5, 'Yes', '1050000.00', 'Feature are written here', 4),
-(6, 'earum expedita iure non quae qui quidem, repudiandae rerum saepe!', 'FMI', 'Yangon', 'Hlain', 'Hlain Road', 'Condo', '5th Floor', '45.00', '100.00', 3, 3, 'Yes', '150000.00', 'Feature are written here', 5);
+INSERT INTO `properties` (`id`, `first_name`, `last_name`, `contact_phone`, `property_type`, `property_for`, `development`, `bed_room`, `bath_room`, `air_conditioning`, `condition_id`, `width`, `length`, `floor`, `address`, `township`, `state`, `price`, `description`, `image_names`) VALUES
+(19, 'Zay Yar', 'Tun', '09972115006', 'Condominium', 'For Rent or Sale', 'Naing Grou', '3', '3', '4', 4, '36.00', '50.00', '4', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Bahan', 'Johor', '700.00', 'No description', 'house_1a.jpg, house_2b.jpg, house_4.jpg'),
+(20, 'Kyawt', 'San', '09795377019', 'Mini-Condominium', 'For Rent', 'Naing', '3', '3', '3', 3, '35.00', '40.00', '4', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Johor Bahru', 'Johor', '244.00', 'Non', 'house_2a.jpg, house_8.jpg'),
+(21, 'Daw Shwe ', 'MI', '0998234567', 'Apartment', 'For Sale', 'Mother land', '0', '1', '1', 2, '15.00', '60.00', '6', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Johor Bahru', 'Johor', '400.00', 'NON', 'house_1a_1.jpg'),
+(22, 'U Soe', 'Nyunt', '0992345678', 'Apartment', 'For Rent', 'Tawwin Construction', '0', '1', '1', 4, '25.00', '60.00', '3', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Johor Bahru', 'Johor', '450.00', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cupiditate delectus hic impedit necessitatibus officiis pariatur repellendus rerum, sequi velit.', 'house_7.jpg'),
+(23, 'Daw Ameena', 'Bi', '093456543', 'Mini-Condominium', 'For Sale', 'Naing Group', '2', '1', '1', 4, '20.00', '30.00', '2', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Johor Bahru', 'Johor', '340.00', 'NON', 'house_3a.jpg, house_6.jpg'),
+(24, 'U Soe', 'Min', '099345678', 'Mini-Condominium', 'For Rent', 'Mother land', '1', '1', '1', 3, '25.00', '55.00', '5', 'No. 105, Thukha Road', 'Hlaing', 'Yangon', '550.00', 'A very nice place with lovely view with the evening sun on your face.', 'house_4_1.jpg, house_7_1.jpg, house_9.jpg'),
+(25, 'Zay Yar', 'Nyunt', '0104135275', 'Condominium', 'For Rent', 'Naing yadanar', '3', '3', '4', 3, '0.00', '60.00', '5', 'No-26, Jalan Panti 6, Taman Bukit Tiram, 81800 Ulu Tiram', 'Bahan', 'Johor', '900.00', 'asdf', 'house_6_1.jpg, house_8_1.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
