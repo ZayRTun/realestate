@@ -28,6 +28,14 @@ header {
 }
 
 /*-------search-form---------*/
+.search-title {
+  display: flex;
+  align-content: center;
+}
+
+.search_form .form-group {
+  margin-bottom: 0 !important;
+}
 
 
 
