@@ -17,11 +17,11 @@
         <!--<h3>Property Search</h3>-->
         <form class="search_form" action="<?php echo url_for('result.php'); ?>" method="post">
 
-          <div class="col-sm-1 search-title">
-            <h3 style="margin-top: 0; margin-bottom: 0;">Search</h3>
+          <div class="col-sm-12 search-title">
+            <h3 style="margin-top: 0;">Search Properties</h3>
           </div>
 
-          <div class="col-sm-2">
+          <div class="col-md-2 col-sm-6">
             <div class="form-group">
               <label for="propertyType" class="sr-only">Property Type</label>
               <select name="property[property_type]" class="form-control" id="propertyType">
@@ -34,7 +34,7 @@
             </div> <!--form-group-->
           </div> <!-- col-sm-2 -->
 
-          <div class="col-sm-2">
+          <div class="col-md-2 col-sm-6">
             <div class="form-group">
               <label for="township" class="sr-only">Select Location</label>
               <select name="property[township]" class="form-control" id="township">
@@ -47,7 +47,7 @@
             </div> <!-- form-group -->
           </div> <!-- col-sm-2 -->
 
-          <div class="col-sm-2">
+          <div class="col-md-2 col-sm-6">
             <div class="form-group">
               <label for="propertyFor" class="sr-only">Property For</label>
                 <select name="property[property_for]" class="form-control" id="propertyFor">
@@ -58,21 +58,21 @@
             </div> <!-- form-group -->
           </div> <!--col-sm-2-->
 
-          <div class="col-sm-1">
+          <div class="col-md-2 col-sm-6">
             <div class="form-group">
               <label for="minPrice" class="sr-only">Minimum Price</label>
                 <input class="form-control" type="text" name="property[min_price]" id="minPrice" placeholder="Min Price">
             </div> <!--form-group-->
           </div> <!--col-sm-2-->
 
-          <div class="col-sm-1">
+          <div class="col-md-2 col-sm-6">
             <div class="form-group">
               <label for="maxPrice" class="sr-only">Maximum Price</label>
                 <input class="form-control" type="text" name="property[max_price]" id="maxPrice" placeholder="Max Price">
             </div> <!--form-group-->
           </div> <!--col-sm-2-->
 
-          <div class="col-sm-1">
+          <div class="col-md-2  col-sm-6">
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-block" value="Search" name="search">
             </div>
