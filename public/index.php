@@ -7,6 +7,19 @@
 
   $lastPosts = Property::get_latest_posting();
 
+  // Paginations
+
+  /*$current_page = $_GET['page'] ?? 1;
+  $per_page = 8;
+  $total_count = Property::count_all();
+
+  $pagination = new Pagination($current_page, $per_page, $total_count);
+
+  $sql = "SELECT * FROM properties";
+  $sql .= "LIMIT {$per_page} ";
+  $sql .= "OFFSET {$pagination->offset()}";
+  $props = Property::find_by_sql($sql);*/
+
 ?>
 
 <!--search form-->
@@ -17,69 +30,15 @@
         <!--<h3>Property Search</h3>-->
         <form class="search_form" action="<?php echo url_for('result.php'); ?>" method="post">
 
-          <div class="col-sm-12 search-title">
-            <h3 style="margin-top: 0;">Search Properties</h3>
-          </div>
-
-          <div class="col-md-2 col-sm-6">
-            <div class="form-group">
-              <label for="propertyType" class="sr-only">Property Type</label>
-              <select name="property[property_type]" class="form-control" id="propertyType">
-                <option value="" selected disabled>Select Property</option>
-                <option value="any">All Property</option>
-                <?php foreach (Property::PROPERTY_TYPE as $type) { ?>
-                  <option value="<?php echo $type; ?>"><?php echo $type; ?></option>
-                <?php } ?>
-              </select>
-            </div> <!--form-group-->
-          </div> <!-- col-sm-2 -->
-
-          <div class="col-md-2 col-sm-6">
-            <div class="form-group">
-              <label for="township" class="sr-only">Select Location</label>
-              <select name="property[township]" class="form-control" id="township">
-                <option value="any" selected disabled>Select Location</option>
-                <option value="any">All Location</option>
-                <?php foreach(Property::get_township_names() as $name) { ?>
-                  <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
-                <?php } ?>
-              </select>
-            </div> <!-- form-group -->
-          </div> <!-- col-sm-2 -->
-
-          <div class="col-md-2 col-sm-6">
-            <div class="form-group">
-              <label for="propertyFor" class="sr-only">Property For</label>
-                <select name="property[property_for]" class="form-control" id="propertyFor">
-                  <?php foreach (Property::PROPERTY_FOR as $type) { ?>
-                    <option value="<?php echo $type; ?>" <?php if ($type == 'Rent') { echo 'selected'; } ?>><?php echo $type; ?></option>
-                  <?php } ?>
-                </select>
-            </div> <!-- form-group -->
-          </div> <!--col-sm-2-->
-
-          <div class="col-md-2 col-sm-6">
-            <div class="form-group">
-              <label for="minPrice" class="sr-only">Minimum Price</label>
-                <input class="form-control" type="text" name="property[min_price]" id="minPrice" placeholder="Min Price">
-            </div> <!--form-group-->
-          </div> <!--col-sm-2-->
-
-          <div class="col-md-2 col-sm-6">
-            <div class="form-group">
-              <label for="maxPrice" class="sr-only">Maximum Price</label>
-                <input class="form-control" type="text" name="property[max_price]" id="maxPrice" placeholder="Max Price">
-            </div> <!--form-group-->
-          </div> <!--col-sm-2-->
+          <?php include('search_form.php'); ?>
 
           <div class="col-md-2  col-sm-6">
             <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-block" value="Search" name="search">
+              <button type="submit" class="btn btn-primary btn-block" value="Search" name="search"><span class="glyphicon glyphicon-search"></span> Search</button>
             </div>
           </div>
 
         </form>
-
       </section>
     </div><!-- row -->
   </div><!-- form container -->
@@ -91,9 +50,9 @@
   <div class="row">
     <section class="col-xs-12">
 
-      <h3>Latest Postings</h3>
+      <h3 class="carousel-header">Latest Postings</h3>
 
-      <div class="carousel slide main_slide" data-ride="carousel" id="featured">
+      <div class="carousel slide main_slide" id="featured">
         <div class="carousel-inner">
           <?php $active = false; ?>
           <?php foreach ($lastPosts as $lastPost) { ?>
@@ -111,12 +70,12 @@
                             <img class="img-responsive center-block" src="<?php echo url_for('/uploaded/' . $images[0]); ?>" alt="<?php echo $images[0]; ?>">
                           </div>
                         </div>
-                        <div class="caption col-sm-4 hidden-xs">
-                          <h3><?php echo $lastPost->property_type; ?></h3>
-                          <p>For <?php echo $lastPost->property_for; ?></p>
-                          <p><?php echo $lastPost->description; ?></p>
-                          <p><?php echo $lastPost->township; ?></p>
-                          <p><?php echo $lastPost->price; ?></p>
+                        <div class="col-sm-4 hidden-xs">
+                            <h3><?php echo $lastPost->property_type; ?></h3>
+                            <p>For <?php echo $lastPost->property_for; ?></p>
+                            <p><?php echo $lastPost->description; ?></p>
+                            <p><?php echo $lastPost->township; ?></p>
+                            <p><?php echo $lastPost->price; ?></p>
                         </div>
                       </div>
 
@@ -187,18 +146,26 @@
                 foreach ($props as $prop) {
                   $img_main = $prop->get_images($prop->id);
               ?>
-                  <section class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                      <img class="index_img" src="<?php echo url_for('/uploaded/' . $img_main[0]) ?>" alt="House 1">
-                      <div class="caption">
-                        <h3><?php echo h($prop->property_type); ?></h3>
-                        <p><?php echo h($prop->property_for); ?></p>
-                        <p class="description"><?php echo h($prop->description); ?></p>
-                        <a href="details.php?id=<?php echo $prop->id; ?>" class="btn btn-info">View Details</a>
+                  <section class="col-xs-12 col-sm-4 col-md-3">
+                    <a href="details.php?id=<?php echo $prop->id; ?>">
+                      <div class="thumb">
+                        <div class="img" style="background-image: url(<?php echo url_for('/uploaded/' . $img_main[0]) ?>)">
+                        </div>
+                        <div class="thumb-cont">
+                          <h3><?php echo h($prop->property_type); ?></h3>
+                          <p><?php echo h($prop->property_for); ?></p>
+                          <p><?php echo h($prop->township); ?></p>
+                          <p>Price : <?php echo h($prop->price); ?></p>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </section>
               <?php } ?>
+              <div class="col-xs-12">
+                <a class="btn btn-success" href="#">View All Properties For Rent</a>
+                <hr>
+              </div>
+
             </div>
 
 
@@ -211,23 +178,26 @@
                 $props = Property::find_all_for_sale();
                 foreach ($props as $prop) {
                   $img_main = $prop->get_images($prop->id);
-
-                  /*$img_main = $prop->main_image();*/
                   ?>
-                  <section class="col-xs-12 col-sm-6 col-md-4">
-
-
-                    <div class="thumbnail">
-                      <img class="index_img" src="<?php echo url_for('/uploaded/' . $img_main[0]) ?>" alt="House 1">
-                      <div class="caption">
-                        <h3><?php echo h($prop->property_type); ?></h3>
-                        <p><?php echo h($prop->property_for); ?></p>
-                        <p class="description"><?php echo h($prop->description); ?></p>
-                        <a href="details.php?id=<?php echo $prop->id; ?>" class="btn btn-info">View Details</a>
+                  <section class="col-xs-12 col-sm-4 col-md-3">
+                    <a href="details.php?id=<?php echo $prop->id; ?>">
+                      <div class="thumb">
+                        <div class="img" style="background-image: url(<?php echo url_for('/uploaded/' . $img_main[0]) ?>)">
+                        </div>
+                        <div class="thumb-cont">
+                          <h3><?php echo h($prop->property_type); ?></h3>
+                          <p><?php echo h($prop->property_for); ?></p>
+                          <p><?php echo h($prop->township); ?></p>
+                          <p>Price : <?php echo h($prop->price); ?></p>
+                        </div>
                       </div>
-                    </div>
+                    </a>
                   </section>
                 <?php } ?>
+              <div class="col-xs-12">
+                <a class="btn btn-success" href="#">View All Properties For Sale</a>
+                <hr>
+              </div>
 
             </div>
           </div> <!-- tab-pane -->
